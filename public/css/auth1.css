@@ -1,0 +1,23 @@
+body {
+    margin-top: 40px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#tabs h1 {
+    margin: 0;
+    padding-bottom: 3%;
+}
+
+#tabs {
+    width: 480px;
+    margin: 40px auto;
+}
+
+#tabs .tab-content {
+    padding: 40px;
+    border: 1px solid #dddddd;
+    border-top: none;
+}

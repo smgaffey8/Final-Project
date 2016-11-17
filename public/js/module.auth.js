@@ -7,7 +7,7 @@ function Auth($http) { // auth controller constructor function
     console.info("Auth.controller:loaded");
 
     var auth = this,
-        alertError = ['alert','alert-danger'];
+        alertError = ['alert', 'alert-danger'];
 
     auth.payload = {};
 

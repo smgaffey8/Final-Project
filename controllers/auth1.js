@@ -1,19 +1,19 @@
-var User = require('../models/user.js'),
+var coach = require('../models/coach1.js'),
     bcrypt = require('bcryptjs'), // used for encryption
     errors = { // response errors
         general: {
             status: 500,
             message: 'Backend error'
         },
-        users: {
+        coachs: {
             duplicate: {
                 status: 409,
-                message: 'User already exists!'
+                message: 'coach already exists!'
             }
         },
         login: {
             status: 403,
-            message: 'Invalid username or password'
+            message: 'Invalid coachname or password'
         }
     },
     messages = {
@@ -30,40 +30,40 @@ var User = require('../models/user.js'),
 module.exports = {
     render: (req, res) => {
         if (req.session.uid) {
-            return res.redirect('/dashboard'); // if the user already has a session cookie, just place them into the dashboard
+            return res.redirect('/dashboard'); // if the coach already has a session cookie, just place them into the dashboard
         } else {
-            res.render('auth', req.session); // render the authenticaiton page (register/login)
+            res.render('auth1', req.session); // render the auth1enticaiton page (register/login)
         }
     },
     logout: (req, res) => {
-        req.session.reset(); // clears the users cookie session
+        req.session.reset(); // clears the coachs cookie session
         res.redirect('/login');
     },
     login: (req, res) => {
         console.log("login server-side");
-        User.findOne({
+        coach.findOne({
             email: req.body.email // sent from the frontend in a POST request
-        }, (err, user) => {
+        }, (err, coach) => {
             // If there was an error in mongo, send back a 500 response (general server error) to the Frontend
             if (err) {
                 console.error('MongoDB error:', err);
                 res.status(500).send(errors.general);
             }
-            if (!user) {
-                // If there was no user found for the given user name, send back a 403 response (forbidden)
+            if (!coach) {
+                // If there was no coach found for the given coach name, send back a 403 response (forbidden)
                 res.status(403).send(errors.login);
             } else {
-                console.info('auth.login.user =', user);
-                // If we got this far, then we know that the user exists. But did they put in the right password?
-                bcrypt.compare(req.body.password, user.password, (bcryptErr, matched) => {
+                console.info('auth1.login.coach =', coach);
+                // If we got this far, then we know that the coach exists. But did they put in the right password?
+                bcrypt.compare(req.body.password, coach.password, (bcryptErr, matched) => {
                     if (bcryptErr) {
                         console.error('Error decrypting password:', bcryptErr);
                         res.status(500).send(errors.general);
                     } else if (!matched) {
-                        console.warn('Passwords do not match for:', user);
+                        console.warn('Passwords do not match for:', coach);
                         res.status(403).send(errors.login);
                     } else {
-                        req.session.uid = user._id; // set the user in the session!
+                        req.session.uid = coach._id; // set the coach in the session!
                         res.send(messages.login); // send a success message
                     }
                 });
@@ -71,20 +71,20 @@ module.exports = {
         });
     },
     register: (req, res) => {
-        var newUser = new User(req.body);
+        var newCoach = new Coach(req.body);
 
-        newUser.save((err, user) => {
+        newCoach.save((err, coach) => {
             if (err) {
                 console.error('#ERROR#'.bold.red, err.message);
                 if (err.code === 11000) {
-                    res.status(errors.users.duplicate.status)
-                        .send(errors.users.duplicate);
+                    res.status(errors.coachs.duplicate.status)
+                        .send(errors.coachs.duplicate);
                 } else {
                     res.status(errors.general.status)
                         .send(errors.general);
                 }
             } else {
-                req.session.uid = user._id; // set the user in the session!
+                req.session.uid = coach._id; // set the coach in the session!
                 res.send(messages.register); // send a success message
             }
         });

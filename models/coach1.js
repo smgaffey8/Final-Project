@@ -1,22 +1,22 @@
 var mongoose = require('mongoose'),
     bcrypt = require('bcryptjs'),
     SALT_INDEX = 10,
-    UserSchema = new mongoose.Schema({
+    coachSchema1 = new mongoose.Schema({
         name: String,
         email: {
             type: String,
-            unique: true
+            unique: true,
         },
         password: String,
         created: Number // Date.now()
     });
 
 // hash passwords before saving them
-UserSchema.pre('save', function(next) {
-    var user = this;
-    console.log('email validated');
+coachSchema1.pre('save', function(next) {
+    var coach = this;
+
     // only hash the password if it has been modified (or is new)
-    if (!user.isModified('password')) {
+    if (!coach.isModified('password')) {
         return next();
     }
     // generate a salt
@@ -25,15 +25,15 @@ UserSchema.pre('save', function(next) {
             return next(saltErr);
         }
         // hash the password using our new salt
-        bcrypt.hash(user.password, salt, (hashErr, hash) => {
+        bcrypt.hash(coach.password, salt, (hashErr, hash) => {
             if (hashErr) {
                 return next(hashErr);
             }
             // override the cleartext password with the hashed one
-            user.password = hash;
+            coach.password = hash;
             next();
         });
     });
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('coach', coachSchema1);
