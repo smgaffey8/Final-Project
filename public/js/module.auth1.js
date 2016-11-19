@@ -46,7 +46,7 @@ function auth1($http) { // auth1 controller constructor function
         success: function(res) {
             // when register is successful, also redirect them into the dashboard (already logged in, [req.session.user] on the backend)
             console.info('auth1.register.success');
-            location.href = "/dashboard";
+            location.href = "/html/dashboard.html";
         },
         error: function(err) {
             console.error('Register:error', err);

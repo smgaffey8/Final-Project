@@ -53,19 +53,228 @@
             <div id="register" role="tabpanel" class="tab-pane">
                 <form ng-submit="auth.register.submit($event)">
                     <h1 class="text-center">Register!</h1>
-                    <fieldset class="form-group">
-                        <!-- <label class="sr-only" for="email">Email</label> -->
-                        <div class="input-group">
-                            <div class="input-group-addon">@</div>
-                            <input required placeholder="Email" class="form-control" type="email" ng-model="auth.payload.email" />
+                    <fieldset>
+                        <div class=" form-group ">
+                            <label class="col-md-4 control-label ">First Name</label>
+                            <div class="col-md-6 inputGroupContainer ">
+                                <div class="input-group ">
+                                    <span class="input-group-addon "><i class="glyphicon glyphicon-user "></i></span>
+                                    <input name="fname " placeholder="First Name " class="form-control" type="text" ng-model="auth.payload.fname">
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
-                    <fieldset class="form-group">
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Last Name</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input name="lname" placeholder="Last Name" class="form-control" type="text" ng-model="auth.payload.lname">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">E-Mail</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input name="email" placeholder="E-Mail Address" class="form-control" type="text" ng-model="auth.payload.email">
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Phone #</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                    <input name="phone" placeholder="(555)555-5555" class="form-control" type="text" ng-model="auth.payload.phone">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">City</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                    <input name="city" placeholder="city" class="form-control" type="text" ng-model="auth.payload.city">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Select Basic -->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">State</label>
+                            <div class="col-md-6 selectContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    <select name="state" class="form-control selectpicker" ng-model="auth.payload.state">
+          <option value=" " >Please select your state</option>
+          <option>Alabama</option>
+          <option>Alaska</option>
+          <option >Arizona</option>
+          <option >Arkansas</option>
+          <option >California</option>
+          <option >Colorado</option>
+          <option >Connecticut</option>
+          <option >Delaware</option>
+          <option >District of Columbia</option>
+          <option> Florida</option>
+          <option >Georgia</option>
+          <option >Hawaii</option>
+          <option >daho</option>
+          <option >Illinois</option>
+          <option >Indiana</option>
+          <option >Iowa</option>
+          <option> Kansas</option>
+          <option >Kentucky</option>
+          <option >Louisiana</option>
+          <option>Maine</option>
+          <option >Maryland</option>
+          <option> Mass</option>
+          <option >Michigan</option>
+          <option >Minnesota</option>
+          <option>Mississippi</option>
+          <option>Missouri</option>
+          <option>Montana</option>
+          <option>Nebraska</option>
+          <option>Nevada</option>
+          <option>New Hampshire</option>
+          <option>New Jersey</option>
+          <option>New Mexico</option>
+          <option>New York</option>
+          <option>North Carolina</option>
+          <option>North Dakota</option>
+          <option>Ohio</option>
+          <option>Oklahoma</option>
+          <option>Oregon</option>
+          <option>Pennsylvania</option>
+          <option>Rhode Island</option>
+          <option>South Carolina</option>
+          <option>South Dakota</option>
+          <option>Tennessee</option>
+          <option>Texas</option>
+          <option> Uttah</option>
+          <option>Vermont</option>
+          <option>Virginia</option>
+          <option >Washington</option>
+          <option >West Virginia</option>
+          <option>Wisconsin</option>
+          <option >Wyoming</option>
+        </select>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">High School</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                                    <input name="highschool" placeholder="High School" class="form-control" type="text" ng-model="auth.payload.highschool">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Graduation Year</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                                    <input name="graduation" placeholder="Graduation Year" class="form-control" type="text" ng-model="auth.payload.graduation">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Club Team</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input name="team" placeholder="Club Team" class="form-control" type="text" ng-model="auth.payload.team">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Position</label>
+                            <div class="col-md-6 selectContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    <select name="Position1" class="form-control selectpicker" ng-model="auth.payload.position">
+          <option value=" " >Please select your position</option>
+          <option>GK</option>
+          <option>RB</option>
+          <option >CB</option>
+          <option >LB</option>
+          <option >RWB</option>
+          <option >LWB</option>
+          <option >CDM</option>
+          <option >CM</option>
+          <option >CAM</option>
+          <option>RM</option>
+          <option >LM</option>
+          <option >RW</option>
+          <option >LW</option>
+          <option >CF</option>
+          <option >ST</option>
+      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">SAT Score</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group ">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                                    <input name="SAT" placeholder="SAT Score" class="form-control" type="text" ng-model="auth.payload.SAT">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Text input-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">ACT Score</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                                    <input name="ACT" placeholder="ACT Score" class="form-control" type="text" ng-model="auth.payload.ACT">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <!-- <fieldset class="form-group"> -->
                         <label class="sr-only" for="password">Password</label>
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
                             <input required placeholder="Create a password" class="form-control" type="password" ng-model="auth.payload.password" />
                         </div>
+                        <!-- </fieldset> -->
                     </fieldset>
                     <button class="btn btn-primary" type="submit">Register</button>
                     <p ng-class="auth.register.alert">{{ auth.register.message }}</p>
@@ -74,6 +283,16 @@
                     </p>
                 </form>
             </div>
+            <!-- /.container -->
+            <!-- <fieldset> -->
+
+            <!-- <button class="btn btn-primary" type="submit">Register</button>
+            <p ng-class="auth.register.alert">{{ auth.register.message }}</p>
+            <p>
+                <a class="btn btn-default" href="/">Return to Homepage</a>
+            </p> -->
+            </form>
+        </div>
         </div>
     </section>
     <div class="fullscreen-bg"></div>

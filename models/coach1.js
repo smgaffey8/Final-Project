@@ -36,4 +36,4 @@ coachSchema1.pre('save', function(next) {
     });
 });
 
-module.exports = mongoose.model('coach', coachSchema1);
+module.exports = mongoose.model('Coach', coachSchema1);

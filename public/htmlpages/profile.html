@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Profile Page
+    </title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/auth1.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/profilejs/controller.profile.js"></script>
+</head>
+
+<body ng-app="employeeApp" ng-controller="employeeController">
+    <div class="content-wrapper">
+        <h2>Angular Profile Editing</h2>
+
+        <div class="everyone-wrapper">
+            <section ng-switch on="(editIndex == $index)" ng-repeat="person in employeeArray track by $index" class="clearfix">
+                <div class="img-wrapper clearfix">
+                    <img ng-src="{{person.imgSrc}}">
+                </div>
+                <div class="info-wrapper clearfix">
+                    <!-- Default Information -->
+                    <h3 ng-switch-default>{{person.firstName}} {{person.lastName}}
+                    </h3>
+                    <span ng-switch-default class="from">From: {{person.from.city}}, {{person.from.state}}</span>
+                    <span ng-switch-default class="phone">Phone: {{person.phone}}</span>
+                    <span ng-switch-default class="email">Email: {{person.email}}</span>
+                    <span ng-switch-default class="highschool">High School: {{person.highschool}}</span>
+                    <span ng-switch-default class="graduation">Graduation Year: {{person.graduation}}</span>
+                    <span ng-switch-default class="team">Club Team: {{person.team}}</span>
+                    <span ng-switch-default class="Position1">Position: {{person.Position1}}</span>
+                    <span ng-switch-default class="SAT">SAT Score: {{person.SAT}}</span>
+                    <span ng-switch-default class="ACT">ACT Score: {{person.ACT}}</span>
+                    <!-- Edit Fields -->
+                    <h3 ng-switch-when="true">
+                        <input ng-model="editObject.fname" placeholder="First Name" type="text"/>
+                        <input ng-model="editObject.lname" placeholder="Last Name" type="text"/>
+                    </h3>
+
+                    <!-- <p ng-switch-when="true" class="p-desc">
+                        <textarea ng-model="editObject.jobDesc" placeholder="Job Description"> </textarea>
+                    </p> -->
+                    <span ng-switch-when="true" class="from">
+                        <input ng-model="editObject.from.city" id="city" type="text" placeholder="City"/>
+                        <input ng-model="editObject.from.state" id="state" type="text" placeholder="State"/>
+                    </span>
+                    <span ng-switch-when="true" class="phone">
+                        <input ng-model="editObject.phone" type="text" placeholder="Phone"/>
+                    </span>
+                    <span ng-switch-when="true" class="email">
+                        <input ng-model="editObject.email" type="text" placeholder="Email"/>
+                    </span>
+                    <span ng-switch-when="true" class="highschool">
+                        <input ng-model="editObject.highschool" type="text" placeholder="High School"/>
+                    </span>
+                    <span ng-switch-when="true" class="graduation">
+                        <input ng-model="editObject.graduation" type="text" placeholder="Graduation Year"/>
+                    </span>
+                    <span ng-switch-when="true" class="team">
+                        <input ng-model="editObject.team" type="text" placeholder="Club Team"/>
+                    </span>
+                    <span ng-switch-when="true" class="Position1">
+                        <input ng-model="editObject.Position1" type="text" placeholder="Position"/>
+                    </span>
+                    <span ng-switch-when="true" class="SAT">
+                        <input ng-model="editObject.SAT" type="text" placeholder="SAT Score"/>
+                    </span>
+                    <span ng-switch-when="true" class="ACT">
+                        <input ng-model="editObject.ACT" type="text" placeholder="ACT Score"/>
+                    </span>
+
+                </div>
+                <div class="edit-wrapper clearfix">
+
+                    <!-- Default Buttons -->
+                    <button class="yellow" ng-switch-default ng-click="editingPerson($index)">edit</button>
+                    <!-- <button class="red" ng-switch-default>trash</button>-->
+                    <!--More functionality going to be added later-->
+
+                    <!--Buttons for editing -->
+                    <button class="green" ng-switch-when="true" ng-click="saveEdit($index)">save</button>
+                    <button class="red" ng-switch-when="true" ng-click="cancelEdit()">X</button>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

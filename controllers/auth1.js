@@ -1,11 +1,11 @@
-var coach = require('../models/coach1.js'),
+var Coach = require('../models/coach1.js'),
     bcrypt = require('bcryptjs'), // used for encryption
     errors = { // response errors
         general: {
             status: 500,
             message: 'Backend error'
         },
-        coachs: {
+        coaches: {
             duplicate: {
                 status: 409,
                 message: 'coach already exists!'
@@ -41,7 +41,7 @@ module.exports = {
     },
     login: (req, res) => {
         console.log("login server-side");
-        coach.findOne({
+        Coach.findOne({
             email: req.body.email // sent from the frontend in a POST request
         }, (err, coach) => {
             // If there was an error in mongo, send back a 500 response (general server error) to the Frontend
@@ -77,8 +77,8 @@ module.exports = {
             if (err) {
                 console.error('#ERROR#'.bold.red, err.message);
                 if (err.code === 11000) {
-                    res.status(errors.coachs.duplicate.status)
-                        .send(errors.coachs.duplicate);
+                    res.status(errors.coaches.duplicate.status)
+                        .send(errors.coaches.duplicate);
                 } else {
                     res.status(errors.general.status)
                         .send(errors.general);

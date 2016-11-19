@@ -43,6 +43,7 @@ app.use(
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
+
 // do all the routing stuff in a separate file by passing a reference of the app!
 require('./routes')(app);
 
