@@ -27,9 +27,9 @@ function auth1($http) { // auth1 controller constructor function
             auth1.login.message = err.data && err.data.message || 'Login failed!';
         }
     };
-    auth1.register = {
+    auth1.register1 = {
         submit: function($event) {
-            $http.post('/register', auth1.payload).then(auth1.register.success, auth1.register.error);
+            $http.post('/register1', auth1.payload).then(auth1.register1.success, auth1.register1.error);
 
             // function validateEmail(uemail1) {
             var emailRegEx = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.[Ee][Dd][Uu]$/;
@@ -45,13 +45,13 @@ function auth1($http) { // auth1 controller constructor function
         },
         success: function(res) {
             // when register is successful, also redirect them into the dashboard (already logged in, [req.session.user] on the backend)
-            console.info('auth1.register.success');
+            console.info('auth1.register1.success');
             location.href = "/html/dashboard.html";
         },
         error: function(err) {
-            console.error('Register:error', err);
-            auth1.register.alert = alertError;
-            auth1.register.message = err.data && err.data.message || 'Registration failed!';
+            console.error('Register1:error', err);
+            auth1.register1.alert = alertError;
+            auth1.register1.message = err.data && err.data.message || 'Registration failed!';
         }
     };
 }

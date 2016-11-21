@@ -42,7 +42,7 @@ module.exports = {
     login: (req, res) => {
         console.log("login server-side");
         Coach.findOne({
-            email: req.body.email // sent from the frontend in a POST request
+            email: req.body.email1 // sent from the frontend in a POST request
         }, (err, coach) => {
             // If there was an error in mongo, send back a 500 response (general server error) to the Frontend
             if (err) {

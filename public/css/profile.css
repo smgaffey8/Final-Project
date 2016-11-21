@@ -1,173 +1,33 @@
-/* CSS using SCSS
-   Created By: Don Page on 8/12/14
-*/
-
-$colorGreen: #27c6a2;
-$colorYellow: #f9c359;
-$colorRed: #fb4953;
-$colorText: #3c3c3c;
-@mixin transition($args...) {
-    -webkit-transition: $args;
-    -moz-transition: $args;
-    -ms-transition: $args;
-    -o-transition: $args;
-    transition: $args;
+.user-row {
+    margin-bottom: 14px;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700);
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    vertical-align: baseline;
-    background: transparent;
-    list-style-type: none;
-    text-decoration: none;
+.user-row:last-child {
+    margin-bottom: 0;
 }
 
-body {
-    font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
-    width: 100%;
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
     height: 100%;
-    overflow-y: scroll;
-    background: url('http://i.imgur.com/fpyh0Vd.jpg') fixed;
-    background-size: cover;
-    font-size: 14px;
-    font-size: 1.4em;
-    line-height: 1.5;
 }
 
-.content-wrapper {
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.21);
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: 900px;
-    margin: 2.5em auto;
-    height: 1000px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-top: 5px solid $colorText;
-    border-radius: 2px;
-    h2 {
-        color: $colorText;
-        text-align: center;
-        border-bottom: 1px solid $colorText;
-    }
-    .everyone-wrapper {
-        margin-top: 30px;
-        section {
-            @include transition(right .3s ease);
-            margin-top: 10px;
-            position: relative;
-            background-color: #d5d5d5;
-            width: 950px;
-            height: 8em;
-            right: 0;
-            border-left: 5px solid $colorRed;
-            border-bottom-left-radius: 4px;
-            border-top-left-radius: 4px;
-            &:hover {
-                @include transition(all .3s ease);
-                right: 50px;
-            }
-            .img-wrapper {
-                display: block;
-                float: left;
-                img {
-                    max-width: 200px;
-                    max-height: 100%;
-                }
-            }
-            .edit-wrapper {
-                margin-top: 14px;
-                width: 50px;
-                height: 100%;
-                float: right;
-                button {
-                    text-align: center;
-                    background-color: $colorRed;
-                    height: 50px;
-                    width: 50px;
-                    cursor: pointer;
-                    border-top: 1px solid #d5d5d5;
-                }
-            }
-            .info-wrapper {
-                padding: 5px;
-                width: 660px;
-                height: 7.5em;
-                float: left;
-                h3 {
-                    display: inline;
-                    span {
-                        font-weight: 100;
-                    }
-                }
-                p {
-                    font-weight: 200;
-                    font-size: 17px;
-                    line-height: 2.0;
-                }
-                span.email {
-                    border-right: none;
-                }
-                .from, .phone, .email {
-                    font-size: 15px;
-                    font-weight: 300;
-                    position: relative;
-                    bottom: 0;
-                    padding: 0 15px;
-                    border-right: 1px solid white;
-                }
-            }
-        }
-    }
+.dropdown-user:hover {
+    cursor: pointer;
 }
 
-button.yellow {
-    background-color: $colorYellow !important;
+.table-user-information>tbody>tr {
+    border-top: 1px solid rgb(221, 221, 221);
 }
 
-button.red {
-    background-color: $colorRed !important;
+.table-user-information>tbody>tr:first-child {
+    border-top: 0;
 }
 
-button.green {
-    background-color: $colorGreen !important;
+.table-user-information>tbody>tr>td {
+    border-top: 0;
 }
 
-input {
-    color: #4d4d4d;
-    font-size: 14px;
-    line-height: 1.5;
-    width: 200px;
-    background: #f2f2f2;
-    border: 2px solid $colorText;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    padding: 7px 14px;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    outline: 0;
-}
-
-input#state {
-    width: 50px;
-}
-
-input#city {
-    width: 100px;
-}
-
-input:valid {
-    -webkit-transition: border .3s ease-in-out;
-    transition: border .3s ease-in-out;
-    border-bottom: 2px solid $colorGreen;
-}
-
-textarea {
-    height: 50px;
-    width: 700px;
-    background: #f2f2f2;
+.toppad {
+    margin-top: 20px;
 }

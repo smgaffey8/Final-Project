@@ -12,7 +12,7 @@ function usersFactory($http) {
         },
 
         getUser: function(userID) {
-            userID = heroID ? '/' + userID : '';
+            userID = userID ? '/' + userID : '';
             return $http.get('/api/users' + userID);
         }
 

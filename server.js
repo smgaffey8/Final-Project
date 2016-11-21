@@ -5,14 +5,7 @@ var express = require('express'), // our framework!
     path = require('path'), // log the routes being accessed by the frontend
     color = require('colors'), // awesome colors in your console logs!
     fileserver = express.static('public'), // turn the public folder into a file server
-    mongoose = require('mongoose').connect('mongodb://localhost/'.concat(config.name), (error) => {
-        if (error) {
-            console.error('ERROR starting mongoose!', error);
-            process.exit(128);
-        } else {
-            console.info('Mongoose connected to MongoDB successfully'.yellow);
-        }
-    }),
+    mongoose = require('mongoose'),
     port = process.env.PORT || 8080, // server port
     sessions = require('client-sessions')({ // session cookie
         cookieName: config.name, // cookie name (within document.cookies on the Frontend)
@@ -28,6 +21,14 @@ var express = require('express'), // our framework!
 
 var app = express(); // initialize express
 
+mongoose.connect('mongodb://localhost/'.concat(config.name), (error) => {
+    if (error) {
+        console.error('ERROR starting mongoose!', error);
+        process.exit(128);
+    } else {
+        console.info('Mongoose connected to MongoDB successfully'.yellow);
+    }
+});
 // server setup
 app.use(
     logger, // mounting dev logging

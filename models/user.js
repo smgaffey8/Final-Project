@@ -17,6 +17,7 @@ var mongoose = require('mongoose'),
         graduation: Number,
         team: String,
         Position1: String,
+        GPA: Number,
         SAT: Number,
         ACT: Number,
         created: Number // Date.now()

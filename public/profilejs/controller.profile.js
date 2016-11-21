@@ -1,27 +1,27 @@
 angular.module('Users')
     .controller('userController', userController);
 
-homeController.$inject = ['usersFactory'];
+userController.$inject = ['usersFactory'];
 
 function userController(usersFactory) {
     var user = this;
-    user.newHero = {};
-    user.hero = {};
-    user.heroList = [];
+    user.newUser = {};
+    user.user = {};
+    user.userList = [];
     user.greeting = 'Welcome to the Heroes of AJAX!';
 
     // heroesFactory.createHero().then
 
-    user.createUser = function() {
-        usersFactory.createHero(user.newUser)
-            .then(function(returnData) {
-                console.log('Response from server : ', returnData);
-                user.newUser = {}; // reset the form
-                user.getUser();
-            });
-    };
+    // user.createUser = function() {
+    //     usersFactory.createHero(user.newUser)
+    //         .then(function(returnData) {
+    //             console.log('Response from server : ', returnData);
+    //             user.newUser = {}; // reset the form
+    //             user.getUser();
+    //         });
+    // };
 
-    user.getHero = function(userID) {
+    user.getUser = function(userID) {
         usersFactory.getUser(userID)
             .then(function(returnData) {
                 if (returnData.data.length) {

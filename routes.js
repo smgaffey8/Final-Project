@@ -1,6 +1,6 @@
-var Auth = require('./controllers/auth.js'),
-    Auth1 = require('./controllers/auth1.js'),
-    Profile = require('./controllers/profile.js');
+var Auth = require('./controllers/auth.js');
+var Auth1 = require('./controllers/auth1.js');
+var Profile = require('./controllers/profile.js');
 
 module.exports = function(app) {
     // SITE ROOT
@@ -11,6 +11,7 @@ module.exports = function(app) {
     });
     app.get('/login', Auth.render); // route for the login page
     app.get('/logout', Auth.logout); // route for logging out
+    // app.get('/api/players/:id', Users.get);
 
     app.post('/login', Auth.login); // form request emdpoint for loggin in
     app.post('/register', Auth.register); // form request endpoint for user registration
@@ -19,11 +20,11 @@ module.exports = function(app) {
     app.get('/logout', Auth1.logout); // route for logging out
 
     app.post('/login', Auth1.login); // form request endpoint for loggin in
-    app.post('/register', Auth1.register); // form request endpoint for coach registration
+    app.post('/register1', Auth1.register); // form request endpoint for coach registration
 
-    // app.post('/api/users', Profile.create);
-    // app.get('/api/users', Profile.get);
-    // app.get('/api/users/:id', Profile.get);
+    app.post('/api/users', Profile.create);
+    app.get('/api/users', Profile.get);
+    app.get('/api/users/:id', Profile.get);
     // DAHSBOARD
     app.all('/dashboard*', Auth.session); // protect all dashboard routes from unauthorized users
     app.get('/dashboard', (req, res) => { // renders the dashboard, break this out into another controller if needed!
