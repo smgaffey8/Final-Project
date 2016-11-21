@@ -29,6 +29,16 @@ mongoose.connect('mongodb://localhost/'.concat(config.name), (error) => {
         console.info('Mongoose connected to MongoDB successfully'.yellow);
     }
 });
+
+// db.collection('urlinfo').find({}, function(err, products) {
+//     if (err) {
+//         console.log(err);
+//         res.json(err);
+//     } else {
+//         res.json(products);
+//     }
+// });
+
 // server setup
 app.use(
     logger, // mounting dev logging

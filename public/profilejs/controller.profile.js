@@ -21,18 +21,21 @@ function userController(usersFactory) {
     //         });
     // };
 
-    user.getUser = function(userID) {
-        usersFactory.getUser(userID)
-            .then(function(returnData) {
-                if (returnData.data.length) {
+    user.getMe = function() {
+        usersFactory.getMe()
+            .then(function(meData) {
+                console.log("return data ", meData);
+                if (meData.data.length) {
                     // if array (has length), store in heroList
-                    user.userList = returnData.data;
+                    user.userList = meData.data;
                 } else {
                     // if not, store in hero
-                    user.user = returnData.data;
+                    Me.user = meData.data;
                 }
             });
+        user.getMe(req.session);
     };
-    user.getUser(); // get many
+    // user.getMe();  get many
     // user.getUser("581a2941fba8172b747af12f"); // get one
+    // user.getMe(req.session);
 }

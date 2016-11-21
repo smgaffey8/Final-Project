@@ -14,7 +14,9 @@ function usersFactory($http) {
         getUser: function(userID) {
             userID = userID ? '/' + userID : '';
             return $http.get('/api/users' + userID);
+        },
+        getMe: function(meData) {
+            return $http.get('/api/me');
         }
-
     };
 }
