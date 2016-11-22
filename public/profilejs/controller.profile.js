@@ -30,12 +30,15 @@ function userController(usersFactory) {
                     user.userList = meData.data;
                 } else {
                     // if not, store in hero
-                    Me.user = meData.data;
+                    user.user = meData.data;
                 }
+            }, function(err) {
+                console.log('Error', err);
             });
-        user.getMe(req.session);
+
     };
-    // user.getMe();  get many
-    // user.getUser("581a2941fba8172b747af12f"); // get one
-    // user.getMe(req.session);
 }
+
+// function video() {
+//     console.log('video upload');
+// }

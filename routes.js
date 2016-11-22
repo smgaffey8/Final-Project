@@ -27,31 +27,13 @@ module.exports = function(app) {
     app.get('/api/users/:id', Profile.get);
     app.get('/api/me', Profile.me);
 
-    // app.get("/search", function(req, res) {
-    //         console.log("shubham batra");
-    //         var email = req.query.email;
-    //         var fname = req.query.fname;
-    //         var lname = req.query.lname;
-    //         var phone = req.query.phone;
-    //         var city = req.query.city;
-    //         var state = req.query.state;
-    //         var highschool = req.query.highschool;
-    //         var graduation = req.query.graduation;
-    //         var team = req.query.team;
-    //         var Position1 = req.query.Position1;
-    //         var GPA = req.query.GPA;
-    //         var SAT = req.query.SAT;
-    //         var ACT = req.query.ACT;
-    // ``
-    //         var products;
-    //     }
     // DAHSBOARD
     app.all('/dashboard*', Auth.session); // protect all dashboard routes from unauthorized users
     app.get('/dashboard', (req, res) => { // renders the dashboard, break this out into another controller if needed!
         res.render('dashboard', req.session);
     });
-    app.all('/dashboard*', Auth1.session); // protect all dashboard routes from unauthorized users
-    app.get('/dashboard', (req, res) => { // renders the dashboard, break this out into another controller if needed!
-        res.render('dashboard', req.session);
-    });
+    // app.all('/dashboard*', Auth1.session); // protect all dashboard routes from unauthorized users
+    // app.get('/dashboard', (req, res) => { // renders the dashboard, break this out into another controller if needed!
+    //     res.render('dashboard', req.session);
+    // });
 };
