@@ -1,6 +1,7 @@
 var Auth = require('./controllers/auth.js');
 var Auth1 = require('./controllers/auth1.js');
 var Profile = require('./controllers/profile.js');
+var Video = require('./controllers/video.js');
 
 module.exports = function(app) {
     // SITE ROOT
@@ -26,6 +27,8 @@ module.exports = function(app) {
     app.get('/api/users', Profile.get);
     app.get('/api/users/:id', Profile.get);
     app.get('/api/me', Profile.me);
+
+    app.post('/api/submission', Video.newSubmission);
 
     // DAHSBOARD
     app.all('/dashboard*', Auth.session); // protect all dashboard routes from unauthorized users

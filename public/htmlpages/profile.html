@@ -13,6 +13,8 @@
     <script src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js'></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-cookies.js"></script>
+
 
     <script src="/profilejs/module.profile.js"></script>
     <script src="/profilejs/controller.profile.js"></script>
@@ -126,47 +128,31 @@
                             <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                         </span>
                 </div>
-                <!-- <video id="Video1" controls style="border: 1px solid blue;" height="240" width="320" title="video element">
-                    HTML5 Video is required for this example
-                    </video>
-                <div id="buttonbar" style="display: none;">
-                    <button id="restart" title="Restart button">[]</button>
-                    <button id="slower" title="Slower playback button">-</button>
-                    <button id="rew" title="Rewind button">&lt;&lt;</button>
-                    <button id="play" title="Play button">&gt;</button>
-                    <button id="fwd" title="Forward button">&gt;&gt;</button>
-                    <button id="faster" title="Faster playback button">+</button>
-                    <button id="Button2" title="Mute button"><img alt="Volume on button" src="vol2.png" /></button>
-                    <br/>
-                    <label>Playback </label>
-                    <label>Reset playback rate: </label><button id="normal" title="Reset playback rate button">=</button>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
-                    <label>  Volume </label>
-                    <button id="volDn" title="Volume down button">-</button>
-                    <button id="volUp" title="Volume up button">+</button>
-                    <button id="mute" title="Mute button"><img alt="Volume on button" src="vol2.png" /></button>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form ng-submit="me.addSubmission()">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Submission</h4>
+                                </div>
+                                <div class="modal-body">
+                                    Your Name<input class="form-control" ng-model="me.newSubmission.name" placeholder="Your Name"> Youtube URL<input class="form-control" ng-model="contest.newSubmission.url" placeholder="Youtube URL"> Submission Title
+                                    <input class="form-control" ng-model="me.newSubmission.title" placeholder="Title of Submission"> Video Description<input class="form-control" ng-model="me.newSubmission.description" placeholder="Description">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel Submission</button>
+                                    <button type="submit" class="btn btn-primary">Add A Submission</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <br/>
-                <div id="inputField" style="display:none;">
-                    <label>Type or paste a video URL: <br/>
-                    <input type="text" id="videoFile" style="width: 300px;"  title="video file input field" value="http://ie.microsoft.com/testdrive/ieblog/2011/nov/pp4_blog_demo.mp4" />
-                    <button id="loadVideo" title="Load video button" >Load</button>
-                    </label>
-                </div>
-                <div title="Error message area" id="errorMsg" style="color:Red;"></div>
-            </div> -->
             </div>
         </div>
     </div>
 </body>
 
 </html>
-<!-- <span ng-switch-default class="from">From: {{person.from.city}}, {{person.from.state}}</span>
-<span ng-switch-default class="phone">Phone: {{person.phone}}</span>
-<span ng-switch-default class="email">Email: {{person.email}}</span>
-<span ng-switch-default class="highschool">High School: {{person.highschool}}</span>
-<span ng-switch-default class="graduation">Graduation Year: {{person.graduation}}</span>
-<span ng-switch-default class="team">Club Team: {{person.team}}</span>
-<span ng-switch-default class="Position1">Position: {{person.Position1}}</span>
-<span ng-switch-default class="SAT">SAT Score: {{person.SAT}}</span>
-<span ng-switch-default class="ACT">ACT Score: {{person.ACT}}</span> -->
