@@ -280,14 +280,17 @@
                     </fieldset>
 
                     <fieldset>
-                        <!-- <fieldset class="form-group"> -->
-                        <label class="sr-only" for="password">Password</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                            <input required placeholder="Create a password" class="form-control" type="password" ng-model="auth.payload.password" />
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Password</label>
+                            <div class="col-md-6 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input name="Password" placeholder="Create A Password" class="form-control" type="password" ng-model="auth.payload.password">
+                                </div>
+                            </div>
                         </div>
-                        <!-- </fieldset> -->
                     </fieldset>
+                    <br>
                     <button class="btn btn-primary" type="submit">Register</button>
                     <p ng-class="auth.register.alert">{{ auth.register.message }}</p>
                     <p>
@@ -295,15 +298,6 @@
                     </p>
                 </form>
             </div>
-            <!-- /.container -->
-            <!-- <fieldset> -->
-
-            <!-- <button class="btn btn-primary" type="submit">Register</button>
-            <p ng-class="auth.register.alert">{{ auth.register.message }}</p>
-            <p>
-                <a class="btn btn-default" href="/">Return to Homepage</a>
-            </p> -->
-            </form>
         </div>
         </div>
     </section>

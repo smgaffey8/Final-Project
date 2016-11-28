@@ -35,6 +35,10 @@ h1 {
     background-size: cover;
 }
 
+btn {
+    display: inline-block;
+}
+
 @media (min-width: 992px) .col-md-6 {
     width: 70%;
 }

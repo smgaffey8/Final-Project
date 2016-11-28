@@ -1,4 +1,23 @@
 body {
     margin-top: 40px;
     background-color: #fefefe;
+    background-image: url(../images/fog.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    opacity: .70;
+}
+
+.navbar:hover {
+    opacity: 1.0;
+}
+
+.jumbotron {
+    opacity: .70;
+}
+
+.jumbotron:hover {
+    opacity: 1.0;
 }
